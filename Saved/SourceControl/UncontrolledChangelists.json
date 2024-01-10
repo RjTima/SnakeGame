@@ -7,7 +7,11 @@
 			"files": [
 				"D:/ProjectUE/SnakeGame/Content/Levels/GameLavel.umap",
 				"D:/ProjectUE/SnakeGame/Content/Framework/BP_SnakeGameMode.uasset",
-				"D:/ProjectUE/SnakeGame/Content/Framework/BP_SnakePawn.uasset"
+				"D:/ProjectUE/SnakeGame/Content/Framework/BP_SnakePawn.uasset",
+				"D:/ProjectUE/SnakeGame/Content/World/BP_SnakeGrid.uasset",
+				"D:/ProjectUE/SnakeGame/Content/Materials/M_SnakeGrid.uasset",
+				"D:/ProjectUE/SnakeGame/Content/Materials/MI_SnakeGrid.uasset",
+				"D:/ProjectUE/SnakeGame/Content/Materials/SimpleGrid.uasset"
 			]
 		}
 	]
