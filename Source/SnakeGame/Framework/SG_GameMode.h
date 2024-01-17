@@ -1,16 +1,19 @@
-// Snake Game Copyright @RjTima
+// Snake Game Copyright @RjTima// Copyright @2024 BY RjTima Inc., SnakeGame. All Rights Reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "SnakeGame/Core/Game.h"
+#include "Engine/DataTable.h"
 #include "SG_GameMode.generated.h"
 
 /**
  * 
  */
 class ASG_Grid;
+class AExponentialHeightFog;
+
 UCLASS()
 class SNAKEGAME_API ASG_GameMode : public AGameModeBase
 {
@@ -29,11 +32,22 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<ASG_Grid> GridVisualClass;
 
-
+    UPROPERTY(EditDefaultsOnly, Category = "Design")
+        UDataTable* ColorsTable;
 private:
-	TUniquePtr<Snake::Game> Game;
-
 	UPROPERTY()
 	ASG_Grid* GridVisual;
+
+    UPROPERTY()
+    AExponentialHeightFog* Fog;
+
+    UFUNCTION(Exec, Category = "Console command")
+    void NextColor();
+    
+    TUniquePtr<Snake::Game> Game;
+    uint32 ColorTableIndex{0};
+
+    void FindFog();
+    void UpdateColors();
 
 };

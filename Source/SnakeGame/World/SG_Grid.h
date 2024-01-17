@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Core/Types.h"
+#include "World/SG_WorldTypes.h"
 #include "SG_Grid.generated.h"
 
 namespace Snake
@@ -24,6 +25,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	void SetModel(const TSharedPtr<Snake::Grid>& Grid, uint32 CellSize);
 
+    void UpdateColors(const FSnakeColors& Colors);
+
 protected:
 
     UPROPERTY(VisibleAnywhere)
@@ -35,6 +38,8 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+    UPROPERTY()
+        UMaterialInstanceDynamic* GridMaterial;
 	Snake::Dim GridDim;
 	uint32 CellSize;
 	uint32 WorldWidth;
