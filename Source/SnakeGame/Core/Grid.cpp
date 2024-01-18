@@ -23,6 +23,17 @@ Grid::Grid(const Dim& dim) //
 	printDebug();
 }
 
+void Grid::update(const TPositionPtr* links, CellType cellType)
+{
+    auto* link = links;
+    while(link)
+    {
+        const auto index = posToIndex(link->GetValue());
+        m_cells[index] = cellType;
+        link = link->GetNextNode();
+    }
+}
+
 void Grid::initWalls()
 {
 	for (uint32 y = 0; y < c_dim.height; ++y)
@@ -53,6 +64,7 @@ void Grid::printDebug()
 			{
 				case CellType::Empty: symbol = '0'; break;
 				case CellType::Wall: symbol = '*'; break;
+			    case CellType::Snake: symbol = '_'; break;
 			}
 		    line.AppendChar(symbol).AppendChar(' ');
 		}
@@ -64,4 +76,9 @@ void Grid::printDebug()
 uint32 Grid::posToIndex(uint32 x, uint32 y) const
 {
 	return x + y * c_dim.width;
+}
+
+uint32 Grid::posToIndex(const Position& position) const
+{
+    return posToIndex(position.x, position.y);
 }

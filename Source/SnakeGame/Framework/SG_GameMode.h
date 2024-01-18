@@ -29,6 +29,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, meta = (ClampMin = "10", ClampMax = "100"))
 	uint32 CellSize {10};
 
+    UPROPERTY(EditDefaultsOnly, meta = (ClampMin = "4", ClampMax = "10"))
+    uint32 SnakeDefaultSize {5};
+
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<ASG_Grid> GridVisualClass;
 

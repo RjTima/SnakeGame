@@ -15,8 +15,12 @@
 void ASG_GameMode::StartPlay()
 {
 	Super::StartPlay();
+    
     //init core game
-	const SnakeGame::Settings GS{GridSize.X, GridSize.Y};
+	SnakeGame::Settings GS;
+    GS.gridDims = SnakeGame::Dim{GridSize.X, GridSize.Y};
+    GS.snake.defaultSize = SnakeDefaultSize;
+    GS.snake.startPosition = SnakeGame::Position{GridSize.X / 2, GridSize.Y / 2};
 	Game = MakeUnique < SnakeGame::Game>(GS);
 	check(Game.IsValid());
 
