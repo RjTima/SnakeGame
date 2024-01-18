@@ -8,7 +8,7 @@
 #include "World/SG_WorldTypes.h"
 #include "SG_Grid.generated.h"
 
-namespace Snake
+namespace SnakeGame
 { 
 	class Grid;
 }
@@ -23,7 +23,7 @@ class SNAKEGAME_API ASG_Grid : public AActor
 public:	
 	ASG_Grid();
 	virtual void Tick(float DeltaTime) override;
-	void SetModel(const TSharedPtr<Snake::Grid>& Grid, uint32 CellSize);
+	void SetModel(const TSharedPtr<SnakeGame::Grid>& Grid, uint32 CellSize);
 
     void UpdateColors(const FSnakeColors& Colors);
 
@@ -40,7 +40,7 @@ protected:
 private:
     UPROPERTY()
         UMaterialInstanceDynamic* GridMaterial;
-	Snake::Dim GridDim;
+	SnakeGame::Dim GridDim;
 	uint32 CellSize;
 	uint32 WorldWidth;
 	uint32 WorldHeight;
